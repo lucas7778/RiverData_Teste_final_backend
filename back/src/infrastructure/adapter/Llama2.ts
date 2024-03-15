@@ -1,20 +1,26 @@
 import IAiMessenger from "../../core/services/IAiMessenger";
 
 export default class Llama2Messenger implements IAiMessenger {
-   async send(message: string): Promise<string> {
-        const response = await fetch("https://rivia-rthzn.brazilsouth.inference.ml.azure.com/score", {
+    static send(content: any) {
+        throw new Error("Method not implemented.");
+    }
+    async send(message: string, topic: string): Promise<string> {
+        const response = await fetch(`https://rivia-rthzn.brazilsouth.inference.ml.azure.com/score`, {
             method: "post",
             headers: {
-                Authorization: "Bearer 4CUdm3xRF52khe94GYJSOKZcP83z0TAf",
+                Authorization: `Bearer 4CUdm3xRF52khe94GYJSOKZcP83z0TAf `,
             },
             body: JSON.stringify({
                 "input_data": {
                     "input_string": [
                         {
+                            "role": "system",
+                            "content": "you only answer about" + topic
+                        },
+                        {
                             "role": "user",
                             "content": message
                         }
-
                     ],
                     "parameters": {
                         "temperature": 0.6,
@@ -26,8 +32,9 @@ export default class Llama2Messenger implements IAiMessenger {
             })
         });
         const answer = await response.json();
+        console.log(answer)
         return answer
     }
-    
+
 }
 

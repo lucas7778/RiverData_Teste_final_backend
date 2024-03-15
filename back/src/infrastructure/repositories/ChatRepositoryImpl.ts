@@ -9,8 +9,8 @@ export default class ChatRepositoryImpl implements IChat {
         this.messages = [];
     }
 
-    async Createmessage(input: Message): Promise<any> {
-        const message = await this.messages.push(input);
+    async Createmessage(inputmessage: Message): Promise<any> {
+        const message = await this.messages.push(inputmessage);
         return message
     }
 

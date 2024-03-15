@@ -1,6 +1,8 @@
 import express from 'express';
 import { createChatmessage } from "./application/controllers/ChatControllers";
+import * as dotenv from 'dotenv';
 
+dotenv.config();
 
 const app = express();
 

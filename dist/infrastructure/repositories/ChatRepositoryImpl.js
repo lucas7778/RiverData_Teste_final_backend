@@ -4,8 +4,8 @@ class ChatRepositoryImpl {
     constructor() {
         this.messages = [];
     }
-    async Createmessage(input) {
-        const message = await this.messages.push(input);
+    async Createmessage(inputmessage) {
+        const message = await this.messages.push(inputmessage);
         return message;
     }
 }
