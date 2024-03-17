@@ -15,7 +15,7 @@ Foi desenvolvido com clean architecture e express
 ```bash
 cd front
 npm install
-npm start
+npm run dev
 ```
 ## Estrutura front
 Foi desenvolvido em react com vite
