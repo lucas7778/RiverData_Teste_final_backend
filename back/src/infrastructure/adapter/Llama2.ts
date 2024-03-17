@@ -1,3 +1,4 @@
+import { env } from "process";
 import IAiMessenger from "../../core/services/IAiMessenger";
 
 export default class Llama2Messenger implements IAiMessenger {
@@ -5,10 +6,10 @@ export default class Llama2Messenger implements IAiMessenger {
         throw new Error("Method not implemented.");
     }
     async send(message: string, topic: string): Promise<string> {
-        const response = await fetch(`https://rivia-rthzn.brazilsouth.inference.ml.azure.com/score`, {
+        const response = await fetch(`${env.LLAMA2_URL}`, {
             method: "post",
             headers: {
-                Authorization: `Bearer 4CUdm3xRF52khe94GYJSOKZcP83z0TAf `,
+                Authorization: `Bearer ${env.LLAMA2_TOKEN} `,
             },
             body: JSON.stringify({
                 "input_data": {
@@ -32,7 +33,6 @@ export default class Llama2Messenger implements IAiMessenger {
             })
         });
         const answer = await response.json();
-        console.log(answer)
         return answer
     }
 

@@ -10,10 +10,9 @@ export const createChatmessage = async (req: Request, res: Response) => {
     try {
         const { topic, content } = req.body;
         const createmessageUseCase = new CreateMessageUseCase(chatRepositoryImpl, llama2Messenger);
-        // const answer = Llama2Messenger.send(content);
-        console.log(topic, content)
         const answer = await createmessageUseCase.execute({ topic, content });
-        res.status(200).send(answer);
+
+        res.status(200).send(answer.anwser);
     } catch (erro) {
         console.log(erro)
         res.status(400).send("erro");
