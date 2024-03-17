@@ -1,4 +1,4 @@
-# RiverData Case
+# RiverData teste final Backend
 
 ## Rodar o back
 *Adicionar no arquivo .env o endereço do endpoint do llama 2 e o token.*
