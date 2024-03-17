@@ -21,4 +21,4 @@ npm start
 Foi desenvolvido em react com vite
 
 ## Entrar na aplicação
-abrir https://localhost:8000
+abrir http://127.0.0.1:5173
